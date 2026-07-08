@@ -100,62 +100,27 @@ export default function PhotoPreviewModal() {
 
                         </p>
 
-                        <div className="mt-10 space-y-5">
-
-                            <div className="flex gap-3">
-
-                                ✅
-
-                                <span>Original photo sent after payment</span>
-
-                            </div>
-
-                            <div className="flex gap-3">
-
-                                ✅
-
-                                <span>No watermark on purchased photo</span>
-
-                            </div>
-
-                            <div className="flex gap-3">
-
-                                ✅
-
-                                <span>Delivery via WhatsApp</span>
-
-                            </div>
-
-                            <div className="flex gap-3">
-
-                                ✅
-
-                                <span>High quality JPEG</span>
-
-                            </div>
-
-                        </div>
 
                         {isClosed ? (
                             <button
                                 disabled
-                                className="mt-12 flex items-center justify-center gap-3 rounded-2xl bg-gray-300 py-4 text-lg font-semibold text-gray-500 cursor-not-allowed select-none"
+                                className="mt-6 w-full flex items-center justify-center gap-2 rounded-2xl bg-gray-300 py-3.5 text-sm font-semibold text-gray-500 cursor-not-allowed select-none"
                             >
                                 Gallery Closed
                             </button>
                         ) : isInCart ? (
                             <button
                                 disabled
-                                className="mt-12 flex items-center justify-center gap-3 rounded-2xl bg-green-50 border border-green-200 py-4 text-lg font-semibold text-green-700 cursor-default select-none"
+                                className="mt-6 w-full flex items-center justify-center gap-2 rounded-2xl bg-green-50 border border-green-200 py-3.5 text-sm font-semibold text-green-700 cursor-default select-none"
                             >
                                 ✓ Added
                             </button>
                         ) : (
                             <button
                                 onClick={() => addItem(photo)}
-                                className="mt-12 flex items-center justify-center gap-3 rounded-2xl bg-[#03412C] py-4 text-lg font-semibold text-white hover:bg-[#055639]"
+                                className="mt-6 w-full flex items-center justify-center gap-2 rounded-2xl bg-[#03412C] py-3.5 text-sm font-semibold text-white hover:bg-[#055639]"
                             >
-                                <ShoppingCart />
+                                <ShoppingCart size={16} />
                                 Add To Cart
                             </button>
                         )}
