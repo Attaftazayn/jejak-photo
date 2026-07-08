@@ -60,26 +60,22 @@ export default function PhotoPreviewModal() {
                     <X />
                 </button>
 
-                <div className="grid lg:grid-cols-2">
+                <div className="grid lg:grid-cols-2 items-center">
 
                     {/* LEFT */}
 
-                    <div className="relative bg-black">
+                    <div className="relative bg-black aspect-[3/2] w-full overflow-hidden">
+                        <Image
+                            src={photo.image}
+                            alt={photo.number}
+                            fill
+                            draggable={false}
+                            className="select-none object-contain"
+                            sizes="(max-width: 1024px) 100vw, 50vw"
+                        />
 
-                        <div className="relative aspect-[3/2] w-full overflow-hidden">
-                            <Image
-                                src={photo.image}
-                                alt={photo.number}
-                                fill
-                                draggable={false}
-                                className="select-none object-contain"
-                                sizes="(max-width: 1024px) 100vw, 50vw"
-                            />
-
-                            {/* Watermark */}
-                            <WatermarkOverlay />
-                        </div>
-
+                        {/* Watermark */}
+                        <WatermarkOverlay />
                     </div>
 
                     {/* RIGHT */}
