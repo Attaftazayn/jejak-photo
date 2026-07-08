@@ -18,7 +18,8 @@ export default function PhotoPreviewModal() {
         closePreview,
     } = usePreview();
 
-    const addItem = useCart((state) => state.addItem);
+    const { items, addItem } = useCart();
+    const isInCart = photo ? items.some((item) => item.id === photo.id) : false;
     const [isClosed, setIsClosed] = useState(false);
 
     useEffect(() => {
@@ -71,7 +72,7 @@ export default function PhotoPreviewModal() {
                                 alt={photo.number}
                                 fill
                                 draggable={false}
-                                className="select-none object-cover"
+                                className="select-none object-contain"
                                 sizes="(max-width: 1024px) 100vw, 50vw"
                             />
 
@@ -145,6 +146,13 @@ export default function PhotoPreviewModal() {
                                 className="mt-12 flex items-center justify-center gap-3 rounded-2xl bg-gray-300 py-4 text-lg font-semibold text-gray-500 cursor-not-allowed select-none"
                             >
                                 Gallery Closed
+                            </button>
+                        ) : isInCart ? (
+                            <button
+                                disabled
+                                className="mt-12 flex items-center justify-center gap-3 rounded-2xl bg-green-50 border border-green-200 py-4 text-lg font-semibold text-green-700 cursor-default select-none"
+                            >
+                                ✓ Added
                             </button>
                         ) : (
                             <button
